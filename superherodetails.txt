@@ -1,0 +1,5 @@
+Univers Name: marvel
+SuperHero [superHeroId=1, superHeroName=Spiderman, hp=2000]
+SuperHero [superHeroId=4, superHeroName=Logan, hp=1000]
+SuperHero [superHeroId=5, superHeroName=Hulk, hp=6000]
+SuperHero [superHeroId=7, superHeroName=thor, hp=2000]

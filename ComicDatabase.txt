@@ -1,0 +1,57 @@
+create database comicdatabase;
+
+create table univers( universid bigint not null auto_increment, universname varchar(50), primary key(universid));
+
+create table superhero(spid bigint not null auto_increment ,spname varchar(50) ,hp bigint , universid bigint,
+primary key(spid), foreign key(universid) references univers(universid));
+
+
+stored procedures:
+
+//1
+CREATE DEFINER=`root`@`localhost` PROCEDURE `assignSuperHeroToUnivers`(in uid bigint, in sname varchar(50))
+BEGIN
+update superhero set universid=uid where spname=sname;
+END
+
+//2
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getSuperHero`()
+BEGIN
+select * from superhero;
+END
+
+//3
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getUnivers`()
+BEGIN
+select * from univers;
+END
+
+//4
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getUniversByName`(in uname varchar(50))
+BEGIN
+select * from univers where universname = uname;
+END
+
+//5
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertSuperHero`(IN spid bigint, IN spname varchar(50),IN hp bigint, universid bigint)
+BEGIN
+insert into superhero values (spid, spname, hp, universid) ;
+END
+
+//6
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertUnivers`(in universid bigint, in universname varchar(50))
+BEGIN
+Insert into univers values(universid,universname);
+END
+
+//7
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getSuperHeroMaxHp`(in uid bigint)
+BEGIN
+select spid, spname, max(hp) as hp from superhero where universid=uid group by universid;
+END
+
+//8
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getSuperHeroByUniversName`(in uid bigint)
+BEGIN
+select * from superhero where universid IN (uid);
+END
