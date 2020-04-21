@@ -36,6 +36,8 @@ public class DriverClass {
 			System.out.println("Enter 7.	Get All Data Of superhero With Univers.");
 			System.out.println("Enter 8:	Write And Read All Data of Superhero with univers in Excel.");
 			System.out.println("Enter 9.	Exit.");
+			System.out.println("Enter 8:	Write And Read All Data of Superhero with univers in Excel.");
+			System.out.println("Enter 9.	Exit.");
 			System.out.println("Enter the choice:");
 			int choice = sc.nextInt();
 			System.out.println("********************************************************");
